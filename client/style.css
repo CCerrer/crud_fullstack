@@ -1,0 +1,24 @@
+table tr td{
+    vertical-align: middle ;
+}
+
+td button{
+    margin: 5px;
+}
+
+td button i{
+    font-size: 20px
+}
+
+form .inputField > div input{
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+#readData form .inputField > div input{
+    color: black;
+}
+
+form input {
+    margin-bottom: 10px;
+}

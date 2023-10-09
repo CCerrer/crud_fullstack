@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <title>Crud Usuário</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <section class="p-3 container">
+        <div class="row">
+            <button class="btn btn-primary col-3 ms-2" id="addButton">Novo Usuário<i class="bi bi-person-add"></i> </button>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-hover mt-3 text-center table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Nome de Usuário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal -->
+    <div class="modal fade preview-modal" id="userForm" data-backdrop="">
+        <div class="modal-dialog modal-dialog-centered modal-xg preview-modal" data-backdrop="">
+            <div class="modal-content">
+                <form action="#" class="needs-validation" id="myForm" novalidate>
+                    <div class="modal-header bg-light">
+                        <h4 class="modal-title">
+                         Criar Usuário
+                        </h4>
+                    <button type="button" class="btn-close" id="closeButton" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+
+                <div class="modal-body">
+                        <div class="inputField user">
+                            <div>
+                                <label for="name" class="fw-bold fs-6">Nome:</label>
+                                <input type="text" name="name" class="form-control p-1 w-75" id="name" placeholder="Nome"
+                                autocomplete="off" required minlength="3" maxlength="50">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="email" class="fw-bold fs-6">Email:</label>
+                                <input type="email" name="email" class="form-control p-1 w-75" id="email" placeholder="Email"
+                                autocomplete="off" required minlength="5" maxlength="50">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="telefone" class="fw-bold fs-6">Telefone:</label>
+                                <input type="text" name="telefone" class="form-control p-1 w-75" id="telefone" placeholder="Telefone"
+                                autocomplete="off" required minlength="11" maxlength="25">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="username" class="fw-bold fs-6">Username:</label>
+                                <input type="text" name="username" class="form-control p-1 w-75" id="username" placeholder="Username"
+                                autocomplete="off" required minlength="8" maxlength="50">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="password" class="fw-bold fs-6">Senha:</label>
+                                <input type="password" name="password" class="form-control p-1 w-75" id="password" placeholder="Senha"
+                                autocomplete="off" required minlength="8" maxlength="50">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="inputField address">
+                            <div>
+                                <label for="cep" class="fw-bold fs-6">CEP:</label>
+                                <input type="text" name="cep" class="form-control p-1 w-75" id="cep" placeholder="CEP"
+                                minlength="8" maxlength="9" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="street" class="fw-bold fs-6">Rua:</label>
+                                <input type="text" name="street" class="form-control p-1 w-75" id="street" placeholder="Rua"
+                                minlength="2" maxlength="50" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="number" class="fw-bold fs-6">Número:</label>
+                                <input type="text" name="number" class="form-control p-1 w-75" id="number" placeholder="Número"
+                                minlength="1" maxlength="10" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="complement" class="fw-bold fs-6">Complemento:</label>
+                                <input type="text" name="complement" class="form-control p-1 w-75" id="complement" placeholder="Complemento"
+                                minlength="2" maxlength="100" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="state" class="fw-bold fs-6">Estado:</label>
+                                <input type="text" name="state" class="form-control p-1 w-75" id="state" placeholder="Estado"
+                                minlength="2" maxlength="50" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div>
+                                <label for="city" class="fw-bold fs-6">Cidade:</label>
+                                <input type="text" name="city" class="form-control p-1 w-75" id="city" placeholder="Cidade"
+                                minlength="2" maxlength="25" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" form="myForm" class="btn btn-primary submit fs-6" id="submitButton" disabled="false">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="module" src="js/validation.js"></script>
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>
